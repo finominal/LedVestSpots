@@ -15,7 +15,8 @@ long loopTime = 0;
 int fps = 25;
 
 String message = "test"; 
-boolean displayDevMode = false;
+boolean displayDevMode = true;
+boolean displayMessages = false;
 
 
 SPOT[] spots;
@@ -46,7 +47,7 @@ void draw()
     background(0);
     AnimateSpots();
   }
-  saveFrame("/users/finbot/desktop/processingOutput/seq-####.jpg");
+ // saveFrame("/users/finbot/desktop/processingOutput/seq-####.jpg");
 }
 
 void AnimateSpots()
@@ -89,7 +90,7 @@ void DrawSpots()
       stroke(255,255,0);
       line(s.position.x/10, s.position.y/10, s.position.x/10 + s.steeringForce.x*10, s.position.y/10 + s.steeringForce.y*10); //steering Force
     }  
-}
+  }
 }
 
 void mousePressed() {

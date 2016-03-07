@@ -11,7 +11,7 @@ class SPOT
   //movement
   PVector steeringForce = new PVector();
   PVector steeringCurrent = new PVector();
-   PVector steeringDesired = new PVector();
+  PVector steeringDesired = new PVector();
   
   public SPOT(int _x, int _y, int _r, int _g, int _b)
   {
@@ -31,9 +31,10 @@ class SPOT
     positionNormalized = position.get();
     positionNormalized.normalize();
     
-    //targetNormalized = target.get();
-    //targetNormalized.normalize();
-   if(displayDevMode)
+    targetNormalized = target.get();
+    targetNormalized.normalize();
+    
+   if(displayMessages)
    {
       message += " position.x=" + position.x;
       message += " position.y=" + position.y;
@@ -64,7 +65,7 @@ class SPOT
     steeringDesired.limit(maxVelocity);
     steeringCurrent = velocity.get();
     
-    if(displayDevMode)
+    if(displayMessages)
     {
       message += "\n\r steeringCurrentHead=" + steeringCurrent.heading();
       message += "\n\r steeringCurrentMag=" + steeringCurrent.mag();
@@ -76,7 +77,7 @@ class SPOT
     steeringForce.sub(steeringCurrent);
     steeringForce.limit(acceleration);
 
-    if(displayDevMode)
+    if(displayMessages)
     {
       message += "\n\r steeringMag=" + steeringForce.mag();
       message += " steeringForce.heading=" + steeringForce.heading();
